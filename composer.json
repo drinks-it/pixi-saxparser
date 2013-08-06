@@ -3,7 +3,7 @@
     "type": "library",
     "description": "",
     "keywords": [
-		"pixi", "php"
+		"pixi", "php", "xml"
 	],
     "homepage": "",
     "license": "MIT",
