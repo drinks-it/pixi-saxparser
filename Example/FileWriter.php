@@ -1,6 +1,6 @@
 <?php
 
-namespace Example\Listener;
+namespace Example\Subscriber;
 
 class FileWriter implements \Symfony\Component\EventDispatcher\EventSubscriberInterface
 {
