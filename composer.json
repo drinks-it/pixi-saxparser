@@ -1,7 +1,7 @@
 {
-    "name": "XmlStreamParser",
+    "name": "SaxParser",
     "type": "library",
-    "description": "",
+    "description": "Sax parser",
     "keywords": [
 		"xml"
 	],
@@ -19,7 +19,7 @@
     ],
     "autoload": {
         "psr-0": { 
-			"pixi" : "src/" 
+			"pixi" : ""
 		}
     },
     "require": {
