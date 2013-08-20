@@ -76,8 +76,7 @@ class Sax
     }
 
     /**
-     * Parsing the given string. The handlers for the
-     * configured events are called as many times as necessary.
+     * Parsing the given xml or string.
      *
      * @access public
      * @param string $strInputXML
@@ -93,12 +92,15 @@ class Sax
     }
 
     /**
-     * Is executed when parsing a xml string
+     * Is executed when parsing an xml tag, which is opened.
+     * This method is connected to the event 'tag.open', which
+     * can be used by an listener or subscriber.
      *
      * @access public
      * @param XmlParser $parser
      * @param string $name
      * @param string $attrs
+     * @return void
      */
     public function tagOpen($parser, $name, $attrs)
     {
@@ -106,6 +108,16 @@ class Sax
         $this->dispatcher->dispatch("tag.open", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $name, "data" => $attrs)));
     }
 
+    /**
+     * Is executed when parsing an xml tag content.
+     * This method is connected to the event 'tag.data', which
+     * can be used by an listener or subscriber.
+     *
+     * @access public
+     * @param XmlParser $parser
+     * @param string $tagData
+     * @return void
+     */
     public function tagData($parser, $tagData)
     {
 
@@ -113,6 +125,16 @@ class Sax
 
     }
 
+    /**
+     * Is executed when parsing an xml tag, which is closed.
+     * This method is connected to the event 'tag.close', which
+     * can be used by an listener or subscriber.
+     *
+     * @access public
+     * @param XmlParser $parser
+     * @param string $name
+     * @return void
+     */
     public function tagClosed($parser, $name)
     {
         $this->dispatcher->dispatch("tag.close", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $name, "data" => "")));
