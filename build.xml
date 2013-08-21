@@ -4,7 +4,7 @@
     <property name="sourcedir" value="${basedir}/src/"/>
     <property name="testdir" value="${basedir}/Test/"/>
 
-    <target name="build" depends="prepare,phpdoc,phpunit"/>
+    <target name="build" depends="prepare,phpdoc"/>
 
     <target name="clean" description="Cleanup build artifacts">
         <delete dir="${basedir}/build/coverage"/>
