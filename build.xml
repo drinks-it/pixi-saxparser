@@ -4,7 +4,7 @@
     <property name="sourcedir" value="${basedir}/src/"/>
     <property name="testdir" value="${basedir}/Test/"/>
 
-    <target name="build" depends="prepare,phpunit,phpdoc"/>
+    <target name="build" depends="prepare,phpdoc,phpunit"/>
 
     <target name="clean" description="Cleanup build artifacts">
         <delete dir="${basedir}/build/coverage"/>
@@ -15,12 +15,6 @@
         <mkdir dir="${basedir}/build/coverage"/>
         <mkdir dir="${basedir}/build/logs"/>
         <mkdir dir="${basedir}/build/docs"/>
-    </target>
-
-    <target name="phpunit" description="Run unit tests with PHPUnit">
-        <exec dir="${basedir}" executable="phpunit" failonerror="true">
-            <arg line="phpunit --junit ${basedir}/build/logs/log.junit.xml"/>
-        </exec>
     </target>
 
     <target name="phpdoc" description="Generating technical documentation">
