@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Lib - Xml" default="build">
 
+    <property name="sourcedir" value="${basedir}/src/"/>
+    <property name="testdir" value="${basedir}/Test/"/>
+
     <target name="build" depends="prepare,phpunit,phpdoc"/>
 
     <target name="clean" description="Cleanup build artifacts">
@@ -15,12 +18,13 @@
     </target>
 
     <target name="phpunit" description="Run unit tests with PHPUnit">
-        <exec dir="${basedir}/Test/" executable="phpunit" failonerror="true"/>
+        <exec dir="${basedir}" executable="phpunit" failonerror="true">
+            <arg line="phpunit --junit ${basedir}/build/logs/log.junit.xml"/>
+        </exec>
     </target>
 
-    <target name="phpdoc" depends="phpunit">
+    <target name="phpdoc" description="Generating technical documentation">
         <exec dir="${basedir}" executable="phpdoc" failonerror="true">
-        	<!-- TODO: change the version here if you create a new version to publish up-to-date documentation -->
             <arg line="--target=build/docs/ --directory=src/ --title='Lib - Xml technical docs' --parseprivate --sourcecode"/>
         </exec>
     </target>

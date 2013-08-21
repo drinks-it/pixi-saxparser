@@ -1,4 +1,4 @@
 vendor/
-composer.lock
 Test/Reports
 Test/log.junit.xml
+composer.lock
