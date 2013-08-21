@@ -1,13 +1,24 @@
 <?php
-
+/**
+ * Sax
+ *
+ * Simple API for XML (SAX) for parsing Xml data.
+ * This class parses xml data using listeners for additional
+ * modification of the data beeing parsed.
+ *
+ * It's written to handle streams and complete Xml structures.
+ *
+ * @author Silvester Maraz
+ * @author Florian Seidl
+ * @package pixi\Xml\Parser
+ * @uses Symfony\Component\EventDispatcher\EventDispatcher
+ * @link https://bitbucket.org/pixi_software/lib-xml/wiki/Home Wiki
+ * @copyright pixi* Software GmbH
+ */
 namespace pixi\Xml\Parser;
 
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
-/**
- * @author Silvester Maraz
- * @author Florian Seidl
- */
 class Sax
 {
     /**
@@ -51,7 +62,6 @@ class Sax
      * Initializes the sax parser and initializes a Symfony2
      * EventDispatcher object.
      *
-     * @param void
      * @return void
      * @access public
      */
@@ -71,7 +81,6 @@ class Sax
      * Frees the current XML parser
      *
      * @access public
-     * @param void
      * @return void
      */
     public function __destruct()
