@@ -1,0 +1,19 @@
+<phpunit bootstrap="bootstrap.php" colors="true">
+	<testsuite name="LibXml">
+        <directory>./UnitTests</directory>
+        <file>SaxTest.php</file>
+    </testsuite>
+	<filter>
+		<whitelist>
+			<directory suffix=".php">../pixi</directory>
+		</whitelist>
+        <blacklist>
+            <directory>../Example</directory>
+            <directory>../vendor</directory>
+        </blacklist>
+	</filter>
+    <logging>
+        <log type="coverage-html" target="./Reports/CodeCoverage"/>
+        <log type="junit" target="log.junit.xml"/>
+    </logging>
+</phpunit>

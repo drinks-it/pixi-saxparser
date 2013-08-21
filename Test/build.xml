@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="LibXmlTestReports" default="gen-report" basedir="./">
+    <exec command="phpunit" />
+    <target name="gen-report">
+        <mkdir dir="./Reports/TestCases" />
+        <phpunitreport infile="log.junit.xml"
+            format="frames"
+            todir="./Reports/TestCases"
+            styledir="../vendor/phing/phing/etc"/>
+    </target>
+</project>
