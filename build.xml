@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Lib - Xml" default="build">
 
-    <target name="build" depends="prepare,phpunit,phpdoc"/>
+    <target name="build" depends="prepare,phpdoc"/>
 
     <!-- Clearing directories of previous builds -->
     <target name="clean" description="Cleanup build artifacts">
@@ -16,12 +16,6 @@
         <mkdir dir="${basedir}/build/docs"/>
     </target>
 
-    <!-- Run unit tests with phpunit -->
-    <target name="phpunit" description="Run unit tests with PHPUnit">
-        <exec dir="${basedir}" executable="phpunit" failonerror="true">
-            <arg line="phpunit --junit ${basedir}/build/logs/log.junit.xml"/>
-        </exec>
-    </target>
 
     <!-- Generate technical documentation, when unit tests are successfull -->
     <target name="phpdoc" depends="phpunit" description="Generating technical documentation">
