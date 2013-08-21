@@ -18,7 +18,7 @@
 
 
     <!-- Generate technical documentation, when unit tests are successfull -->
-    <target name="phpdoc" depends="phpunit" description="Generating technical documentation">
+    <target name="phpdoc" description="Generating technical documentation">
         <exec dir="${basedir}" executable="phpdoc" failonerror="true">
             <arg line="--target=build/docs/ --directory=src/ --title='Lib - Xml technical docs' --parseprivate --sourcecode"/>
         </exec>
