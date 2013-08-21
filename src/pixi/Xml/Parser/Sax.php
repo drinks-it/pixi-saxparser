@@ -46,6 +46,8 @@ class Sax
     public $lastOpenTag;
 
     /**
+     * Constructor
+     *
      * Initializes the sax parser and initializes a Symfony2
      * EventDispatcher object.
      *
@@ -64,6 +66,8 @@ class Sax
     }
 
     /**
+     * Destructor
+     *
      * Frees the current XML parser
      *
      * @access public
@@ -76,6 +80,8 @@ class Sax
     }
 
     /**
+     * Parse
+     *
      * Parsing the given xml or string.
      *
      * @access public
@@ -92,6 +98,8 @@ class Sax
     }
 
     /**
+     * TagOpen
+     *
      * Is executed when parsing an xml tag, which is opened.
      * This method is connected to the event 'tag.open', which
      * can be used by an listener or subscriber.
@@ -109,6 +117,8 @@ class Sax
     }
 
     /**
+     * TagData
+     *
      * Is executed when parsing an xml tag content.
      * This method is connected to the event 'tag.data', which
      * can be used by an listener or subscriber.
@@ -126,6 +136,8 @@ class Sax
     }
 
     /**
+     * TagClose
+     *
      * Is executed when parsing an xml tag, which is closed.
      * This method is connected to the event 'tag.close', which
      * can be used by an listener or subscriber.
