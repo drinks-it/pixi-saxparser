@@ -16,6 +16,7 @@
         <mkdir dir="${basedir}/build/docs"/>
     </target>
 
+    <!-- Donwloading dependencies via composer -->
     <target name="composer" depends="clean" description="Install dependencies, creating autoloader">
         <exec dir="${basedir}" executable="composer" failonerror="true">
             <arg line=" install"/>
