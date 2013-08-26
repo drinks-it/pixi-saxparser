@@ -1,6 +1,6 @@
 <?php
 
-include (dirname(__FILE__).'../../').'vendor/autoload.php';
+include (dirname(__FILE__)).'/vendor/autoload.php';
 
 ini_Set('display_errors','On');
 

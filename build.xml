@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Lib - Xml" default="build">
+
+    <target name="build" depends="prepare,phpunit,phpdoc"/>
+
+    <!-- Clearing directories of previous builds -->
+    <target name="clean" description="Cleanup build artifacts">
+        <delete dir="${basedir}/build/coverage"/>
+        <delete dir="${basedir}/build/logs"/>
+    </target>
+
+    <!-- Generating new directories for current build -->
+    <target name="prepare" depends="clean" description="Prepare for build">
+        <mkdir dir="${basedir}/build/coverage"/>
+        <mkdir dir="${basedir}/build/logs"/>
+        <mkdir dir="${basedir}/build/docs"/>
+    </target>
+
+    <target name="composer" depends="clean" description="Install dependencies, creating autoloader">
+        <exec dir="${basedir}" executable="composer" failonerror="true">
+            <arg line=" install"/>
+        </exec>
+    </target>
+
+    <!-- Run unit tests with phpunit -->
+    <target name="phpunit" depends="composer" description="Run unit tests with PHPUnit">
+        <exec dir="${basedir}" executable="phpunit" failonerror="true">
+            <arg line=" --log-junit ${basedir}/build/logs/log.junit.xml"/>
+        </exec>
+    </target>
+
+    <!-- Generate technical documentation, when unit tests are successfull -->
+    <target name="phpdoc" depends="phpunit" description="Generating technical documentation">
+        <exec dir="${basedir}" executable="phpdoc" failonerror="true">
+            <arg line="--target=build/docs/ --directory=src/ --title='Lib - Xml: Technical Documentation' --parseprivate --sourcecode"/>
+        </exec>
+    </target>
+
+</project>
