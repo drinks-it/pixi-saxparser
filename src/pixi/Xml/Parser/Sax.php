@@ -1,12 +1,32 @@
 <?php
 /**
- * Sax
+ * This class was written by the developers
+ * of the pixi* Software GmbH
  *
+ * For detailed information check out the repository, wiki,
+ * or technical documentation
+ */
+
+namespace pixi\Xml\Parser;
+
+use Symfony\Component\EventDispatcher\EventDispatcher;
+
+/**
  * Simple API for XML (SAX) for parsing Xml data.
  * This class parses xml data using listeners for additional
  * modification of the data beeing parsed.
  *
  * It's written to handle streams and complete Xml structures.
+ *
+ *      $saxParser = new pixi\Xml\Parser\Sax();
+ *      $saxParser ->dispatcher->addSubscriber(new Your\Own\Listener());
+ *
+ *      while(!feof($fp)) {
+ *          $saxParser ->parse(fread($fp), 4096);
+ *      }
+ *
+ * In this example you're initializing the parser and add a Subscriber
+ * to it and finally start parsing the xml in a file stream.
  *
  * @author Silvester Maraz
  * @author Florian Seidl
@@ -15,10 +35,6 @@
  * @link https://bitbucket.org/pixi_software/lib-xml/wiki/Home Wiki
  * @copyright pixi* Software GmbH
  */
-namespace pixi\Xml\Parser;
-
-use Symfony\Component\EventDispatcher\EventDispatcher;
-
 class Sax
 {
     /**

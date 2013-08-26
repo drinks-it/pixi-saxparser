@@ -19,7 +19,7 @@
     <!-- Run unit tests with phpunit -->
     <target name="phpunit" description="Run unit tests with PHPUnit">
         <exec dir="${basedir}" executable="phpunit" failonerror="true">
-            <arg line="phpunit --junit ${basedir}/build/logs/log.junit.xml"/>
+            <arg line=" --log-junit ${basedir}/build/logs/log.junit.xml"/>
         </exec>
     </target>
 
