@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Sax parser",
     "keywords": [
-		"xml"
+		"xml", "stream", "parser", "sax", "php"
 	],
     "homepage": "",
     "license": "MIT",
@@ -19,7 +19,7 @@
     ],
     "autoload": {
         "psr-0": {
-			"pixi" : "src/"
+			"Pixi" : "src/"
 		}
     },
     "require": {

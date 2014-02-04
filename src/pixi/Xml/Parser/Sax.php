@@ -7,7 +7,7 @@
  * or technical documentation
  */
 
-namespace pixi\Xml\Parser;
+namespace Pixi\Xml\Parser;
 
 use Symfony\Component\EventDispatcher\EventDispatcher;
 
@@ -118,7 +118,7 @@ class Sax
         $this->strXmlData = xml_parse($this->resParser, $strInputXML);
 
         if(!$this->strXmlData) {
-            die(sprintf("XML error: %s at line %d", xml_error_string(xml_get_error_code($this->resParser)), xml_get_current_line_number($this->resParser)));
+            throw new Exception(sprintf("XML error: %s at line %d", xml_error_string(xml_get_error_code($this->resParser)), xml_get_current_line_number($this->resParser)));
         }
     }
 
