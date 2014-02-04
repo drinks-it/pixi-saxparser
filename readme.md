@@ -17,19 +17,23 @@ After including the `autoload.php` into your project you can start using the par
 To initialize the parser and adding a listener use following code snippet:
 ```
 :::PHP
+<?php
 $saxParser = new pixi\Xml\Parser\Sax();
 $saxParser ->dispatcher->addSubscriber(new Your\Own\Listener());
+?>
 ```
 
 To start the parsing process you can simply run the `parse` method.
 ```
 :::PHP
+<?php
 $saxParser = new pixi\Xml\Parser\Sax();
 $saxParser ->dispatcher->addSubscriber(new Your\Own\Listener());
 
 while(!feof($fp)) {
 	$saxParser ->parse(fread($fp), 4096);
 }
+?>
 ```
 
 > **NOTE:** For more details visit the library [wiki](https://bitbucket.org/pixi_software/lib-xml/wiki/Home)
