@@ -19,7 +19,7 @@
     <!-- Donwloading dependencies via composer -->
     <target name="composer" depends="clean" description="Install dependencies, creating autoloader">
         <exec dir="${basedir}" executable="php" failonerror="true">
-            <arg line=" -r &quot;eval('?>'.file_get_contents('https://getcomposer.org/installer'));&quot;" />
+            <arg line=" -r &quot;eval(&apos;?>&apos;.file_get_contents(&apos;https://getcomposer.org/installer&apos;));&quot;" />
         </exec>
         <exec dir="${basedir}" executable="php" failonerror="true">
             <arg line=" composer.phar install"/>
