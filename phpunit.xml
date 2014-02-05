@@ -15,17 +15,6 @@
             <directory>./tests/unit/</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist>
-            <directory>./</directory>
-            <exclude>
-                <directory>./Example</directory>
-                <directory>./src</directory>
-                <directory>./Tests</directory>
-                <directory>./vendor</directory>
-            </exclude>
-        </whitelist>
-    </filter>
     <logging>
         <log type="junit" target="log.junit.xml"/>
     </logging>
