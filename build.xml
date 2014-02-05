@@ -29,7 +29,7 @@
     <!-- Run unit tests with phpunit -->
     <target name="phpunit" depends="composer" description="Run unit tests with PHPUnit">
         <exec dir="${basedir}" executable="./vendor/bin/phpunit" failonerror="true">
-            <arg line="--log-junit ${basedir}/build/logs/log.junit.xml"/>
+            <arg line="--log-junit ./build/logs/log.junit.xml"/>
         </exec>
     </target>
 
