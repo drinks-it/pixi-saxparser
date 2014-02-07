@@ -101,7 +101,7 @@ class Sax
      */
     public function __destruct()
     {
-        xml_parser_free($this->resParser);
+        return xml_parser_free($this->resParser);
     }
 
     /**
@@ -118,7 +118,7 @@ class Sax
         $this->strXmlData = xml_parse($this->resParser, $strInputXML);
 
         if(!$this->strXmlData) {
-            throw new Exception(sprintf("XML error: %s at line %d", xml_error_string(xml_get_error_code($this->resParser)), xml_get_current_line_number($this->resParser)));
+            die (sprintf("XML error: %s at line %d", xml_error_string(xml_get_error_code($this->resParser)), xml_get_current_line_number($this->resParser)));
         }
     }
 
