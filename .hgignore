@@ -1,4 +1,3 @@
 vendor/
-Test/Reports
-Test/log.junit.xml
 composer.lock
+tests/_log/
