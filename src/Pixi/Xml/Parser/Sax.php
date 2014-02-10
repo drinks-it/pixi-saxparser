@@ -30,7 +30,6 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
  *
  * @author Silvester Maraz
  * @author Florian Seidl
- * @package pixi\Xml\Parser
  * @uses Symfony\Component\EventDispatcher\EventDispatcher
  * @link https://bitbucket.org/pixi_software/lib-xml/wiki/Home Wiki
  * @copyright pixi* Software GmbH
@@ -38,6 +37,8 @@ use Symfony\Component\EventDispatcher\EventDispatcher;
 class Sax
 {
     /**
+     * Dispatcher
+     *
      * Property that contains the Symfony2 EventDispatcher.
      * You can use this object directly to add listeners or subscribers.
      * E.g. $sax->dispatcher->addSubscriber();
