@@ -4,13 +4,11 @@
     <target name="build" depends="clean,composer,phpunit,phpdoc"/>
 
     <!-- Cleaning previous build files from current build -->
-    <target name="clean" description="Cleanup build artifacts">
-		<!-- Deleting all files and subdirectories of _log -->
-        <delete includeemptydirs="false" failonerror="false"/>
+    <target name="clean" description="Cleanup build artifacts">		
+        <delete includeemptydirs="true" failonerror="false"/>
+			<!-- Deleting all files and subdirectories of _log -->
 			<fileset dir="${basedir}/tests/_log/" includes="**/*" />
-		</delete>
-		<!-- Deleting all files and subdirectories of vendor, including vendor itself -->
-		<delete includeemptydirs="true" failonerror="false"/>
+			<!-- Deleting all files and subdirectories of vendor, including vendor itself -->
 			<fileset dir="vendor" />
 		</delete>
     </target>
