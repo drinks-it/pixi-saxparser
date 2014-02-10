@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Lib - Xml" default="build">
-
     <target name="build" depends="clean,composer,codeception,phpdoc"/>
 
     <!-- Cleaning previous build files from current build -->
@@ -42,5 +41,4 @@
             <arg line="--target=build/docs/ --directory=src/ --title='Lib - Xml: Technical Documentation' --parseprivate --sourcecode"/>
         </exec>
     </target>
-
 </project>
