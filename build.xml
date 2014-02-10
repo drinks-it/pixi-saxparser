@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="Lib - Xml" default="build">
 
-    <target name="build" depends="clean,composer,phpunit,phpdoc"/>
+    <target name="build" depends="clean,composer,codeception,phpdoc"/>
 
     <!-- Cleaning previous build files from current build -->
     <target name="clean" description="Cleanup build artifacts">
