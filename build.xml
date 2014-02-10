@@ -7,7 +7,7 @@
     <target name="clean" description="Cleanup build artifacts">
 		<!-- Deleting all files and subdirectories of _log -->
         <delete includeemptydirs="false">
-			<fileset dir="${basefir}/tests/_log/" includes="**/*" />
+			<fileset dir="${basedir}/tests/_log/" includes="**/*" />
 		</delete>
 		<!-- Deleting all files and subdirectories of vendor, including vendor itself -->
 		<delete includeemptydirs="true">
