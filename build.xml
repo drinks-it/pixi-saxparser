@@ -5,13 +5,17 @@
 
     <!-- Cleaning previous build files from current build -->
     <target name="clean" description="Cleanup build artifacts">
-		<!-- Deleting all files and subdirectories of _log -->
+        <!-- Deleting all files and subdirectories of _log -->
         <delete includeemptydirs="false" failonerror="false">
 			<fileset dir="${basedir}/tests/_log/" includes="**/*" />
 		</delete>
 		<!-- Deleting all files and subdirectories of vendor, including vendor itself -->
 		<delete includeemptydirs="true" failonerror="false">
 			<fileset dir="vendor" />
+		</delete>
+        <!-- Deleting all files and subdirectories of docs -->
+        <delete includeemptydirs="false" failonerror="false">
+			<fileset dir="${basedir}/build/docs/" includes="**/*" />
 		</delete>
     </target>
 
@@ -24,7 +28,7 @@
             <arg line=" composer.phar install"/>
         </exec>
     </target>
-	
+
 	<!-- Run unit tests with codeception -->
 	<target name="codeception" depends="composer" description="Run tests with Codeception">
 		<exec dir="${basedir}" executable="./vendor/bin/codecept" failonerror="true">
