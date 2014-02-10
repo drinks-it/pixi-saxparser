@@ -7,7 +7,7 @@ require "FileWriter.php";
 $exampleXml = fopen("food.xml", "r");
 
 // Inizializing the parser and adding the included subscriber
-$saxParser = new pixi\Xml\Parser\Sax();
+$saxParser = new Pixi\Xml\Parser\Sax();
 $saxParser->dispatcher->addSubscriber(new Example\Subscriber\FileWriter("FoodInfo.txt"));
 
 // Parsing the xml by lines
