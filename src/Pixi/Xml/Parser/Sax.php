@@ -49,6 +49,8 @@ class Sax
     public $dispatcher;
 
     /**
+     * ResParser
+     *
      * Contains the resource handle for the new XML parser
      *
      * @var resource handle
@@ -57,6 +59,8 @@ class Sax
     public $resParser;
 
     /**
+     * StrXmlData
+     *
      * Contains the current line, which will be parsed by the sax parser
      *
      * @var string
@@ -65,6 +69,8 @@ class Sax
     public $strXmlData;
 
     /**
+     * LastOpenTag
+     *
      * Contains the last opened tag, which will be passed as argument to
      * the event "tag.data".
      *
@@ -76,7 +82,7 @@ class Sax
     /**
      * Constructor
      *
-     * Initializes the sax parser and initializes a Symfony2
+     * Initializes the sax parser, creates a xml resource and initializes a Symfony2
      * EventDispatcher object.
      *
      * @return void
@@ -95,7 +101,7 @@ class Sax
     /**
      * Destructor
      *
-     * Frees the current XML parser
+     * Frees the current XML parser resource
      *
      * @access public
      * @return void
