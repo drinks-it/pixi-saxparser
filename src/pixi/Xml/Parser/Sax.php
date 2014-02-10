@@ -101,7 +101,9 @@ class Sax
      */
     public function __destruct()
     {
-        return xml_parser_free($this->resParser);
+        if(get_resource_type($this->resParser) === 'xml') {
+            xml_parser_free($this->resParser);
+        }
     }
 
     /**
@@ -113,13 +115,13 @@ class Sax
      * @param string $strInputXML
      * @return void
      */
-    public function parse($strInputXML)
+    public function parse($strInputXML = null)
     {
-        $this->strXmlData = xml_parse($this->resParser, $strInputXML);
-
-        if(!$this->strXmlData) {
-            die (sprintf("XML error: %s at line %d", xml_error_string(xml_get_error_code($this->resParser)), xml_get_current_line_number($this->resParser)));
+        if(!is_string($strInputXML)) {
+            throw new \InvalidArgumentException('The given argument is not a string');
         }
+
+        $this->strXmlData = xml_parse($this->resParser, $strInputXML);
     }
 
     /**
@@ -155,9 +157,7 @@ class Sax
      */
     public function tagData($parser, $tagData)
     {
-
         $this->dispatcher->dispatch("tag.data", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $this->lastOpenTag, "data" => $tagData)));
-
     }
 
     /**
