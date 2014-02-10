@@ -7,15 +7,16 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 class SaxTest extends \PHPUnit_Framework_TestCase
 {
-    protected $saxParser;
+    private $saxParser;
 
-    protected $xml = '
+    /* Some test xml structure */
+    private $xml = '
         <root>
             <name>Foo</name>
             <lastname>Bar</lastname>
         </root>';
 
-    public function setUp()
+    protected function setUp()
     {
         $this->saxParser = new Sax();
     }
@@ -33,19 +34,21 @@ class SaxTest extends \PHPUnit_Framework_TestCase
             "tag.close" => array("onTagClose", 0)
         );
 
+        // Mocking an observer
         $observer = $this->getMockBuilder('Symfony\Component\EventDispatcher\EventSubscriberInterface')
             ->getMock('Observer');
 
+        // Implemented function from EventSubscriberInterface
         $observer::staticExpects($this->once())
             ->method('getSubscribedEvents')
             ->will($this->returnValue($map));
 
+        // Test if adding a subscriber was successfull
         $this->saxParser->dispatcher->addSubscriber($observer);
     }
 
     public function testEventTagOpen()
     {
-
         $map = array(
             "tag.open" => array("onTagOpen", 0)
         );
@@ -123,6 +126,14 @@ class SaxTest extends \PHPUnit_Framework_TestCase
         $this->saxParser->parse($this->xml);
     }
 
+    /**
+     * @expectedException InvalidArgumentException
+     */
+    public function testParseException()
+    {
+        $this->saxParser->parse(null);
+    }
+
     public function testParse()
     {
         $observer = new Observer();
@@ -146,8 +157,8 @@ class SaxTest extends \PHPUnit_Framework_TestCase
 
     public function testDestruct()
     {
-        $this->assertTrue($this->saxParser->__destruct());
-        //$this->assertEquals('Unknown', get_resource_type($this->saxParser->resParser));
+        $this->saxParser->__destruct();
+        $this->assertSame('Unknown', get_resource_type($this->saxParser->resParser));
     }
 }
 
