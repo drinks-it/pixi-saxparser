@@ -24,13 +24,13 @@
             <arg line=" composer.phar install"/>
         </exec>
     </target>
-
-    <!-- Run unit tests with phpunit -->
-    <target name="phpunit" depends="composer" description="Run unit tests with PHPUnit">
-        <exec dir="${basedir}" executable="./vendor/bin/phpunit" failonerror="true">
-            <arg line="--log-junit ./build/logs/log.junit.xml"/>
+	
+	<!-- Run unit tests with codeception -->
+	<target name="codeception" depends="composer" description="Run tests with Codeception">
+		<exec dir="${basedir}" executable="./vendor/bin/codeception" failonerror="true">
+            <arg line="run --coverage --xml"/>
         </exec>
-    </target>
+	</target>
 
     <!-- Generate technical documentation, when unit tests are successfull -->
     <target name="phpdoc" depends="phpunit" description="Generating technical documentation">
