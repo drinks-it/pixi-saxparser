@@ -6,11 +6,11 @@
     <!-- Cleaning previous build files from current build -->
     <target name="clean" description="Cleanup build artifacts">
 		<!-- Deleting all files and subdirectories of _log -->
-        <delete includeemptydirs="false">
+        <delete includeemptydirs="false" failonerror="false"/>
 			<fileset dir="${basedir}/tests/_log/" includes="**/*" />
 		</delete>
 		<!-- Deleting all files and subdirectories of vendor, including vendor itself -->
-		<delete includeemptydirs="true">
+		<delete includeemptydirs="true" failonerror="false"/>
 			<fileset dir="vendor" />
 		</delete>
     </target>
