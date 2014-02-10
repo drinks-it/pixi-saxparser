@@ -27,7 +27,7 @@
 	
 	<!-- Run unit tests with codeception -->
 	<target name="codeception" depends="composer" description="Run tests with Codeception">
-		<exec dir="${basedir}" executable="./vendor/bin/codeception" failonerror="true">
+		<exec dir="${basedir}" executable="./vendor/bin/codecept" failonerror="true">
             <arg line="run --coverage --xml"/>
         </exec>
 	</target>
