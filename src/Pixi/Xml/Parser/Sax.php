@@ -92,6 +92,8 @@ class Sax
     {
         $this->resParser = xml_parser_create();
         xml_set_object($this->resParser, $this);
+        xml_parser_set_option($this->resParser, XML_OPTION_SKIP_WHITE, true);
+        xml_parser_set_option($this->resParser, XML_OPTION_CASE_FOLDING, false);
         xml_set_element_handler($this->resParser, "tagOpen", "tagClosed");
         xml_set_character_data_handler($this->resParser, "tagData");
 
