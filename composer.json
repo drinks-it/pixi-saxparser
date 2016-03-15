@@ -1,5 +1,5 @@
 {
-	"name" : "SaxParser",
+	"name" : "pixi/SaxParser",
 	"type" : "library",
 	"description" : "Sax parser",
 	"keywords" : [
