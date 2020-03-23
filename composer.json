@@ -1,33 +1,35 @@
 {
-	"name" : "pixi/SaxParser",
-	"type" : "library",
-	"description" : "Sax parser",
-	"keywords" : [
-		"xml",
-		"stream",
-		"parser",
-		"sax",
-		"php"
-	],
-	"license" : "MIT",
-	"authors" : [{
-			"name" : "Silvester Maraz",
-			"email" : "smaraz@pixi.eu"
-		}, {
-			"name" : "Florian Seidl",
-			"email" : "fs@pixi.eu"
-		}
-	],
-	"autoload" : {
-		"psr-0" : {
-			"Pixi" : "src/"
-		}
-	},
-	"require" : {
-		"php" : " >= 5.3.2",
-		"symfony/event-dispatcher" : "~2.3"
-	},
-	"require-dev" : {
-		"codeception/codeception" : "~2.0"
-	}
+  "name": "drinks-it/pixi-saxparser",
+  "type": "library",
+  "description": "Sax parser",
+  "keywords": [
+    "xml",
+    "stream",
+    "parser",
+    "sax",
+    "php"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Silvester Maraz",
+      "email": "smaraz@pixi.eu"
+    },
+    {
+      "name": "Florian Seidl",
+      "email": "fs@pixi.eu"
+    }
+  ],
+  "autoload": {
+    "psr-0": {
+      "Pixi": "src/"
+    }
+  },
+  "require": {
+    "php": " >= 5.3.2",
+    "symfony/event-dispatcher": "~2.3"
+  },
+  "require-dev": {
+    "codeception/codeception": "~2.0"
+  }
 }
