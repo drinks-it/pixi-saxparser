@@ -9,7 +9,7 @@
 
 namespace Pixi\Xml\Parser;
 
-use Symfony\Component\EventDispatcher\EventDispatcher;
+//use Symfony\Component\EventDispatcher\EventDispatcher;
 
 /**
  * Simple API for XML (SAX) for parsing Xml data.
@@ -46,7 +46,7 @@ class Sax
      * @var EventDispatcher
      * @access public
      */
-    public $dispatcher;
+//    public $dispatcher;
 
     /**
      * ResParser
@@ -97,7 +97,7 @@ class Sax
         xml_set_element_handler($this->resParser, "tagOpen", "tagClosed");
         xml_set_character_data_handler($this->resParser, "tagData");
 
-        $this->dispatcher = new EventDispatcher();
+//        $this->dispatcher = new EventDispatcher();
     }
 
     /**
@@ -149,7 +149,7 @@ class Sax
     public function tagOpen($parser, $name, $attrs)
     {
         $this->lastOpenTag = $name;
-        $this->dispatcher->dispatch("tag.open", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $name, "data" => $attrs)));
+//        $this->dispatcher->dispatch("tag.open", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $name, "data" => $attrs)));
     }
 
     /**
@@ -166,7 +166,7 @@ class Sax
      */
     public function tagData($parser, $tagData)
     {
-        $this->dispatcher->dispatch("tag.data", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $this->lastOpenTag, "data" => $tagData)));
+//        $this->dispatcher->dispatch("tag.data", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $this->lastOpenTag, "data" => $tagData)));
     }
 
     /**
@@ -183,6 +183,6 @@ class Sax
      */
     public function tagClosed($parser, $name)
     {
-        $this->dispatcher->dispatch("tag.close", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $name, "data" => "")));
+//        $this->dispatcher->dispatch("tag.close", new \Symfony\Component\EventDispatcher\GenericEvent("sax.parser", array("tagName"  => $name, "data" => "")));
     }
 }
